@@ -60,4 +60,14 @@ public class GoodsCategoryServiceImpl implements GoodsCategoryService {
         return goodsCategoryDao.findAll();
     }
 
+    @Override
+    public List<GoodsCategory> findChilren(GoodsCategory goodsCategory) {
+        return goodsCategoryDao.findByParent(goodsCategory);
+    }
+
+    @Override
+    public List<GoodsCategory> findByName(String name) {
+        return goodsCategoryDao.findByName(name) ;
+    }
+
 }

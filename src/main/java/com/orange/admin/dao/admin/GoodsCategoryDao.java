@@ -12,6 +12,12 @@ import java.util.List;
 @Repository
 public interface GoodsCategoryDao extends JpaRepository<GoodsCategory, Long> {
 
-    public List<GoodsCategory> findByParentIsNull();
+    List<GoodsCategory> findByParentIsNull();
+
+    List<GoodsCategory> findByParent(GoodsCategory parent);
+
+    List<GoodsCategory> findByName(String name);
+
+
 
 }

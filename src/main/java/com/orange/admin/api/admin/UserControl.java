@@ -24,7 +24,7 @@ import java.util.Date;
  * 用户管理控制器
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/admin/user")
 public class UserControl {
 
 

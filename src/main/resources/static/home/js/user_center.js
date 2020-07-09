@@ -98,3 +98,22 @@ function sellout(id){
 	});
 }
 
+function ajaxRequest(url,requestType,data,callback){
+	$.ajax({
+		url:url,
+		type:requestType,
+		data:data,
+		dataType:'json',
+		success:function(rst){
+			if(rst.code === 0){
+				callback(rst);
+			}else{
+				showErrorMsg(rst.msg);
+			}
+		},
+		error:function(data){
+			alert('网络错误!');
+		}
+	});
+}
+

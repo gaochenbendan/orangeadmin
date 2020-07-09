@@ -1,13 +1,16 @@
 package com.orange.admin.api.home;
 
+import com.orange.admin.commons.utils.PageUtil;
 import com.orange.admin.commons.utils.SessionUtil;
 import com.orange.admin.commons.utils.ValidataUtil2;
 import com.orange.admin.pojo.admin.bo.Result;
 import com.orange.admin.pojo.admin.sc.CodeMsg;
 import com.orange.admin.pojo.common.Customer;
+import com.orange.admin.pojo.common.Goods;
 import com.orange.admin.service.adminservice.GoodsCategoryService;
 import com.orange.admin.service.adminservice.OperaterLogService;
 import com.orange.admin.service.homeservice.CustomerService;
+import com.orange.admin.service.homeservice.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +36,9 @@ public class IndexController {
     private CustomerService customerService;
 
     @Autowired
+    private GoodsService goodsService;
+
+    @Autowired
     private OperaterLogService operaterLogService;
 
     /**
@@ -41,13 +47,17 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/index")
-    public String index(Model model) {
-
-//        model.addAttribute("goodsCategorys",goodsCategoryService.findAll());
-
+    public String index(Model model, PageUtil<Goods> pageUtil,Goods goods) {
+        pageUtil.setPageSize(12);
+        goods.setStatus(Goods.GOODS_STATUS_UP);
+        model.addAttribute("soldTotal",goodsService.coutSellOut());
+        model.addAttribute("goodsList",goodsService.findList(pageUtil,goods));
+        model.addAttribute("name",goods.getName());
         return "home/index/index";
 
     }
+
+
 
     /**
      * 登录页面

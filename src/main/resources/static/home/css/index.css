@@ -1,5 +1,5 @@
 
-html, body, div, header, footer, form, p, input, button, h1, h2, h3, h4, h5, h6, ul, li, img, textarea { margin: 0px; border: 0px none; padding: 0px; outline: medium none; }
+html, body, div, header, footer, form, p, input, button, h1, h2, h3, h4, h5, h6, ul, li, img, textarea { margin: 2px; border: 0px none; padding: 0px; outline: medium none; }
 ul, li { list-style: outside none none; }
 article, aside, dialog, footer, header, section, footer, nav, figure, menu { display: block; }
 .group::before, .group::after { content: ""; display: block; line-height: 0; height: 0px; font-size: 0px; clear: both; }
@@ -16,7 +16,7 @@ body { position: relative; min-width: 960px; font-family: "Helvetica Neue",Helve
 .cur1 .wave { background-position: 0px 0px; }
 
 a { transition: color 0.2s ease 0s; }
-header { width: 100%; min-width: 960px; height: 120px; position: fixed; left: 0px; top: 0px; z-index: 99; overflow: visible; background-color: rgb(255, 255, 255); box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); }
+header { width: 100%; min-width: 960px; height: 120px; position: absolute; left: 0px; top: 0px; z-index: 99; overflow: visible; background-color: rgb(255, 255, 255); box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); }
 .logo { width: 120px; height: 120px; position: absolute; left: 0px; top: 0px; }
 .center { margin: 0px auto; }
 .header-main { width: 960px; padding-top: 25px; position: relative; margin-left: 15%; }
@@ -77,7 +77,7 @@ li.catg .sub-nav a:hover { color: rgb(255, 198, 0); }
 .catg h3 { float: right; width: 60px; height: 100%; margin-right: 9px; text-align: left; overflow: hidden; font-size: 14px; }
 .area .switch:hover { color: rgb(237, 78, 81); border-bottom-color: rgb(237, 78, 81); }
 li.catg:hover a, li.area:hover > div { box-shadow: 0px 0px 7px rgba(23, 190, 160, 0.3) inset; }
-aside { width: 140px; position: fixed; top: 170px; right: 20px; }
+aside { width: 140px; position: absolute; top: 170px; right: 20px; }
 
 
 
@@ -192,7 +192,7 @@ div.center { position: relative; }
 
 .info .department { text-align: left; width: 35%; float: left; font-size: 1em; color: rgb(133, 141, 142);}
 .info .place { text-align: right; width: 55%; float: right; font-size: 1em; color: rgb(133, 141, 142);}
-.info .school { position: absolute; max-width: 100%; top: 208px; left: 0px; background-color: rgb(75, 192, 15); color: rgb(255, 255, 255); padding: 0px 10px; height: 32px; line-height: 32px; font-size: 16px; }
+.info .school { position: absolute; max-width: 100%; top: 145px; left: 0px; background-color: rgb(75, 192, 15); color: rgb(255, 255, 255); padding: 0px 10px; height: 32px; line-height: 32px; font-size: 16px; }
 .info .school span {  }
 .school0 { position: absolute; max-width: 100%; top: 208px; left: 0px; background-color: #FFB300; color: rgb(255, 255, 255); padding: 0px 10px; height: 32px; line-height: 32px; font-size: 16px; }
 
@@ -209,7 +209,7 @@ div.center { position: relative; }
 }
 @media screen and (min-width: 1440px) {
 }
-.return-to-top { background: transparent url('../imgs/heliscoper.png') no-repeat scroll left center; width: 59px; height: 74px; position: fixed; right: 12%; bottom: 20%; opacity: 1; transition: transform 0.2s ease-in-out 0s; transform: translateY(0px); z-index: 99; display: none; }
+.return-to-top { background: transparent url('../imgs/heliscoper.png') no-repeat scroll left center; width: 59px; height: 74px; position: fixed; right: 8%; bottom: 20%; opacity: 1; transition: transform 0.2s ease-in-out 0s; transform: translateY(0px); z-index: 99; display: none; }
 .return-to-top a { display: block; width: 100%; height: 100%; }
 .return-to-top:hover { background-position: right center; }
 .wrap-site { padding: 20px; background-color: rgb(255, 255, 255); position: relative; z-index: 10; }

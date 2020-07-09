@@ -51,9 +51,9 @@ public class loginInterceptor implements HandlerInterceptor {
             request.setAttribute("userTopMenus", MenuUtil.getTopMenus(authorities));
             List<Menu> secondMenus = MenuUtil.getSecondMenus(user2.getRole().getAuthorities());
             request.setAttribute("userSecondMenus", secondMenus);
+
             request.setAttribute("userThirdMenus", MenuUtil.getChildren(MenuUtil.getMenuIdByUrl(requestURI,secondMenus),authorities));
-//            request.setAttribute("siteName", siteConfig.getSiteName());
-//            request.setAttribute("siteUrl", siteConfig.getSiteUrl());
+
         }
         return true;
     }

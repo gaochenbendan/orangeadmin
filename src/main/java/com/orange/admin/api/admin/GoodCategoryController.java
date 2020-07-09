@@ -47,9 +47,7 @@ public class GoodCategoryController {
         model.addAttribute("name", name);
         pageUtil.setContent(new ArrayList<GoodsCategory>());
         PageUtil<GoodsCategory> all = goodsCategoryService.findList(pageUtil, goodsCategory);
-        System.out.println("-------------");
-        System.out.println(all.getContent());
-        System.out.println("-------------");
+
         model.addAttribute("pageBean",all);
         return "admin/good_category/list";
 

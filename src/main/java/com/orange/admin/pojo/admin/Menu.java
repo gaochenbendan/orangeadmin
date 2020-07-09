@@ -134,7 +134,7 @@ public class Menu {
         return "Menu{" +
                 "menuId=" + menuId +
                 ", name='" + name + '\'' +
-                ", parent=" + parent +
+
                 ", url='" + url + '\'' +
                 ", icon='" + icon + '\'' +
                 ", sort=" + sort +

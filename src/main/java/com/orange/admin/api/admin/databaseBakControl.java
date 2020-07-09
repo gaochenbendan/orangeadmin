@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
 @Controller
-@RequestMapping("/database_bak")
+@RequestMapping("/admin/database_bak")
 public class databaseBakControl {
 
     @Autowired

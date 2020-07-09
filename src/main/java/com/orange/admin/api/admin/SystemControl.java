@@ -138,6 +138,7 @@ public class SystemControl {
 //        销毁验证码
         request.getSession().setAttribute("admin_login", null);
 //         写入日志库
+
         OperaterLog operaterLog = new OperaterLog();
         operaterLog.setOperator(byUser.getNetName());
         operaterLog.setContent("【" + byUser.getNetName() + "】登录于：【" + StringUtil.getFormatterDate(new Date(), "yyyy-MM-dd HH:mm:ss") + "】");

@@ -57,7 +57,7 @@ public class RuntimeConstant {
 			"/error",
 			"/upload/upload_photo",
 			"/photo/view",
-
+			"/cpacha/generate_cpacha",
 			"/upload/upload_photo",
 			"/upload/upload_photo_icon",
 			"/photo/view_icon",
@@ -78,13 +78,14 @@ public class RuntimeConstant {
 			"/photo/view_icon",
 			"/home/index/**",
 			"/home/goods/**",
-			"/home/wanted_goods/**",
+			"/home/wangted_goods/**",
 			"/home/js/**",
 			"/home/css/**",
 			"/home/imgs/**",
 			"/photo/view_custom",
 			"/photo/view_icon",
-			"/photo/view_cunstomer"
+			"/photo/view_cunstomer",
+			"/cpacha/generate_cpacha"
 
 
 	);

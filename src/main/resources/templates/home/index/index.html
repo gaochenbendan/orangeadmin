@@ -32,78 +32,52 @@
         <div class="item-list">
             <ul class="items clearfix">
 
-
+            <#if goodsList.content??>
+                <#list goodsList.content as goods>
                <li class="item">
-                   <a href="#" class="img" target="_top"><img src="/home/imgs/orange.jpg" alt=""></a>
+                   <a href="/home/goods/detail?id=${goods.id}" class="img" target="_top"><img src="/photo/view_cunstomer?filename=${goods.photo}" alt="${goods.name}" style="width: 197px"></a>
                    <div class="info">
-                       <div class="price">""</div>
+                       <div class="price">${goods.sellPrice}</div>
                        <div class="name">
-                           <a href="" >""</a>
+                           <a href="/home/goods/detail?id=${goods.id}" >${goods.name}</a>
                        </div>
-                       <div class="department"><span>""</span></div>
+                       <div class="department"><span>${goods.customer.academy!"用户未填写"}</span></div>
+                       <div class="place"><span>${goods.customer.school!"用户未填写"}</span></div>
+                       <#if goods.recommend == 1>
                        <div class="school"><span>推荐</span></div>
+                        </#if>
                     </div>
                </li>
-                <li class="item">
-                    <a href="#" class="img" target="_top"><img src="/home/imgs/orange.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="price">""</div>
-                        <div class="name">
-                            <a href="" >""</a>
-                        </div>
-                        <div class="department"><span>""</span></div>
-                        <div class="school"><span>推荐</span></div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="#" class="img" target="_top"><img src="/home/imgs/orange.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="price">""</div>
-                        <div class="name">
-                            <a href="" >""</a>
-                        </div>
-                        <div class="department"><span>""</span></div>
-                        <div class="school"><span>推荐</span></div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="#" class="img" target="_top"><img src="/home/imgs/orange.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="price">""</div>
-                        <div class="name">
-                            <a href="" >""</a>
-                        </div>
-                        <div class="department"><span>""</span></div>
-                        <div class="school"><span>推荐</span></div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="#" class="img" target="_top"><img src="/home/imgs/orange.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="price">""</div>
-                        <div class="name">
-                            <a href="" >""</a>
-                        </div>
-                        <div class="department"><span>""</span></div>
-                        <div class="school"><span>推荐</span></div>
-                    </div>
-                </li>
+            </#list>
+            </#if>
 
 
             </ul>
         </div>
         <!-- 分页 开始 -->
-        <div class="pages">
-            <a class="page-num cur" href="http://hust.2shoujie.com/recent">1</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn2">2</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn3">3</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn4">4</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn5">5</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn6">6</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn7">7</a>
-            <a class="page-num " href="http://hust.2shoujie.com/recent/pn8">8</a>
-            <a class="page-arrow arrow-right" href="http://hust.2shoujie.com/recent/pn2">下一页</a>
+<#if goodsList.total gt 0>
+<!-- 分页 开始 -->
+<div class="pages">
+    <#if goodsList.currentPage == 1>
+    <a class="page-arrow arrow-left" href="javascript:void(0)">首页</a>
+    <#else>
+    <a class="page-arrow arrow-left" href="/home/index/index?name=${name!""}&currentPage=1">首页</a>
+        </#if>
+        <#list goodsList.currentShowPage as showPage>
+        <#if goodsList.currentPage == showPage>
+        <a class="page-num cur" href="javascript:void(0)">${showPage}</a>
+        <#else>
+        <a class="page-num " href="/home/index/index?name=${name!""}&currentPage=${showPage}">${showPage}</a>
+        </#if>
+        </#list>
+        <#if goodsList.currentPage == goodsList.totalPage>
+        <a class="page-arrow arrow-right" href="javascript:void(0)">尾页</a>
+        <#else>
+        <a class="page-arrow arrow-right" href="/home/index/index?name=${name!""}&currentPage=${goodsList.totalPage}">尾页</a>
+        </#if>
         </div>
+        <!-- 分页 结束 -->
+        </#if>
         <!-- 分页 结束 -->
     </div>
 </div>

@@ -19,6 +19,8 @@ public class PageUtil<T> {
 
     private List<T> content;
 
+    private int offset = 0;//数据库游标
+
     private int showPageSize = 5;//显示在页面可快速跳转的页码个数
 
     private List<Integer> currentShowPage = new ArrayList<Integer>();//当前显示在页面快速跳转的页码
@@ -95,5 +97,14 @@ public class PageUtil<T> {
 
     public void setTotalPage(int totalPage) {
         this.totalPage = totalPage;
+    }
+
+    public int getOffset() {
+        offset = (currentPage - 1) * pageSize;
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
 }

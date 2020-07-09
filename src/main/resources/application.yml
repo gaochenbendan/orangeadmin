@@ -20,7 +20,7 @@ server:
 orange:
   upload:
     photo:
-      sufix: .jpg,.png,.gif,jpeg
+      sufix: .jpg,.png,.gif,jpeg.PNG
       maxsize: 1024
       upload_path: D:\projectdev\image\upload\images
       upload_path_icon: D:\projectdev\image\upload\icon

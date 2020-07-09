@@ -40,11 +40,9 @@ public class CpachaControl {
          * 这个session一定要写到这个位置 否则发布出去
          */
 
-        if(request.getSession().getAttribute(method)!= null)
-        {
+
             request.getSession().setAttribute(method,null);
 
-        }
             request.getSession().setAttribute(method,generatorVCode);
 
         ImageIO.write(

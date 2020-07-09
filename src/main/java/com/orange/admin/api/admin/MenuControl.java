@@ -23,7 +23,7 @@ import java.util.List;
  * 后端管理控制器
  */
 @Controller
-@RequestMapping("/menu")
+@RequestMapping("/admin/menu")
 public class MenuControl {
 
     @Autowired

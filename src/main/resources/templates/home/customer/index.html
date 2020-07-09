@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <title>${siteName!""}-个人中心</title>
+    <title>橙子-个人中心</title>
     <link rel="icon" href="/admin/images/tubiao.png" type="image/ico">
     <link media="all" href="/home/css/index.css" type="text/css" rel="stylesheet">
     <link media="all" href="/home/css/user_center.css" type="text/css" rel="stylesheet">
@@ -43,17 +43,17 @@
                 </div>
 
                 <ul class="seller_attr">
-                    <li>已发布商品：<span id="goodsTotal">45</span></li>
-                    <li>已出售商品：<span id = "soldGoodsTotal">4545</span></li>
-                    <li>正出售商品：<span id = "upGoodsTotal">4545</span></li>
-                    <li>已下架商品：<span id = "downGoodsTotal">4545</span></li>
-                    <li>待求购商品：<span id = "userpoint">3</span></li>
-                    <li>已举报商品：<span id = "userpoint2">55</span></li>
+                    <li>已发布商品：<span id="goodsTotal">${goodscount.allCount!""}</span></li>
+                    <li>已出售商品：<span id = "soldGoodsTotal">${goodscount.selloutCount!""}</span></li>
+                    <li>正出售商品：<span id = "upGoodsTotal">${goodscount.sellupCount!""}</span></li>
+                    <li>已下架商品：<span id = "downGoodsTotal">${goodscount.sellDownCount!""}</span></li>
+                    <li>待求购商品：<span id = "userpoint">${goodscount.wantedCount!""}</span></li>
+                    <li>已举报商品：<span id = "userpoint2">${goodscount.reportCount!""}</span></li>
                 </ul>
             </div>
             <div id="user_photo">
                 <#if CustomerL.headPic??>
-                <img id="origin_ph" onClick="openUploadPanel()" src="photo/view_cunstomer?filename=${CustomerL.headPic}" old-src="/photo/view_cunstomer?filename=${CustomerL.headPic}" alt="大头像">
+                <img id="origin_ph" onClick="openUploadPanel()" src="/photo/view_cunstomer?filename=${CustomerL.headPic}" old-src="/photo/view_cunstomer?filename=${CustomerL.headPic}" alt="大头像">
                 <#else>
                 <img id="origin_ph" onClick="openUploadPanel()" src="/home/imgs/avatar4.png" old-src="/home/imgs/avatar1.png">
             </#if>
@@ -164,10 +164,11 @@
             <#list goodsList as goods>
             <div class="enshr_each" id="">
                 <div class="enshr_info">
-                    <h2><a href="../goods/detail?id=${goods.id}" title="${goods.name}">${goods.name}</a></h2>
-                    <p style="overflow:hidden;">${goods.content}</p>
+                    <h2><a href="../goods/detail?id=${goods.id}" title="${goods.name}" ><b style="color: #00CCFF">${goods.name}</b></a></h2>
+                    <span >出售价格<b> / </b>购入价格：<b>${(goods.sellPrice)?c} / ${(goods.buyPrice)?c}</b></span><br><br>
+                    <span style="overflow:hidden;">商品介绍：${goods.content}</span><br>
                     <div class="enshr_state">
-	                        <span id="prostate">
+	                        <span >
 	                        	状态：
 	                        	<#if goods.status ==1>
 	                        	<font style="color:rgb(75, 192, 165);">正在出售</font>
@@ -177,7 +178,7 @@
 	                        	<font style="color:#4BC00F;">已售出</font>
 	                        	</#if>
                         </span>|
-                        <span id="prostate">
+                        <span >
 	                        	是否推荐：
 	                        	<#if goods.recommend ==1>
 	                        	<font style="color:rgb(75, 192, 165);">是</font>
@@ -185,7 +186,7 @@
 	                        	<font style="color:red;">否</font>
 	                        	</#if>
                         </span>
-                        &nbsp;&nbsp;<span id="prostate">上架日期：${goods.updateTime}</span>
+                        &nbsp;&nbsp;<span id="prostate">上架日期：${goods.updateTime?string('yyyy-MM-dd')}</span>
                         <#if goods.status == 1>
                         <span class="enshrine_it" onclick="sellout(${goods.id});">确认售出</span>
                         <#elseif goods.status == 3>
@@ -208,7 +209,7 @@
         </div>
     </div>
     <a href="../goods/detail?id=${goods.id}">
-        <img class="enshr_ph" src="/photo/view?filename=${goods.photo}" alt="${goods.name}">
+        <img class="enshr_ph" src="/photo/view_cunstomer?filename=${goods.photo}" alt="${goods.name}">
     </a>
 </div>
 </#list>
@@ -228,18 +229,19 @@
                 <p style="overflow:hidden;">${wantedGoods.content}</p>
                 <div class="enshr_state">
                     &nbsp;&nbsp;
-                    <span id="prostate">发布日期：${wantedGoods.updateTime}</span>
+                    <span id="">发布日期：${wantedGoods.updateTime}</span>
                     <a href="javascript:void(0)" onClick="delWanted(${wantedGoods.id})" target="_top">
                         <span class="enshrine_it  make_edition" style="margin-right:30px;">删除</span>
                     </a>
                     <a href="edit_wanted_goods?id=${wantedGoods.id}" target="_top">
                         <span class="enshrine_it  make_edition" style="margin-right:30px;">编辑</span>
                     </a>
+
                 </div>
             </div>
             <a href="">
-                <#if wantedGoods.student.headPic??>
-                <img class="enshr_ph" src="/photo/view?filename=${wantedGoods.student.headPic}" alt="${wantedGoods.name}">
+                <#if wantedGoods.customer.headPic??>
+                <img class="enshr_ph" src="/photo/view_cunstomer?filename=${wantedGoods.customer.headPic}" alt="${wantedGoods.name}">
                 <#else>
                 <img class="enshr_ph" src="/home/imgs/avatar1.png" alt="${wantedGoods.name}">
             </#if>
@@ -256,24 +258,27 @@
     <div id="onsale_pro">
         <#if reportGoodsList??>
         <#list reportGoodsList as reportGoods>
-        <div class="enshr_each" id="">
+        <div class="enshr_each" >
             <div class="enshr_info">
-                <h2><a href="../goods/detail?id=${reportGoods.goods.id}" title="${reportGoods.goods.name}">${reportGoods.goods.name}</a></h2>
+                <h2><a href="/home/goods/detail?id=${reportGoods.goods.id}" title="${reportGoods.goods.name}">${reportGoods.goods.name}</a></h2>
                 <p style="overflow:hidden;">${reportGoods.goods.content}</p>
                 <div class="enshr_state">
-                    &nbsp;&nbsp;<span id="prostate">举报日期：${reportGoods.createTime}</span>
-                    &nbsp;&nbsp;<span id="prostate">举报原因：${reportGoods.content}</span>
+                    &nbsp;&nbsp;<span >举报日期：${reportGoods.createTime}</span>
+                    &nbsp;&nbsp;<span >举报原因：${reportGoods.content}</span>
                     <a href="javascript:void(0)" onClick="delReport(${reportGoods.id})" target="_top">
                         <span class="enshrine_it  make_edition" style="margin-right:30px;">删除</span>
                     </a>
                 </div>
             </div>
             <a href="../goods/detail?id=${reportGoods.goods.id}">
-                <img class="enshr_ph" src="/photo/view?filename=${reportGoods.goods.photo}" alt="${reportGoods.goods.name}">
+                <img class="enshr_ph" src="/photo/view_cunstomer?filename=${reportGoods.goods.photo}" alt="${reportGoods.goods.name}">
             </a>
         </div>
     </#list>
 </#if>
+
+<div class="return-to-top"><a href="#"></a></div><!--返回顶部-->
+
 </div>
 </div>
 </div>
@@ -284,9 +289,28 @@
 <script src="/home/js/common.js"></script>
 <script src="/home/js/user_center.js"></script>
 <script src="/home/js/add.js"></script>
-
-
 <script type="text/javascript">
+    function delWanted(id){
+        if (!confirm('删除后不可恢复，确定要删除？')) {
+            return;
+        }
+        ajaxRequest('delete_wanted','post',{id:id},function(){
+            alert('删除成功');
+            window.location.reload();
+        });
+    };
+    function delReport(id){
+        if (!confirm('删除后不可恢复，确定要删除？')) {
+            return;
+        }
+        ajaxRequest('delete_report','post',{id:id},function(){
+            alert('删除成功');
+            window.location.reload();
+        });
+    };
+
+
+
 
 </script>
 </html>

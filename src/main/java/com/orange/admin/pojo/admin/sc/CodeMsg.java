@@ -78,7 +78,23 @@ public class CodeMsg {
     public static CodeMsg HOME_STUDENT_UNABLE = new CodeMsg(-29, "用户被冻结~~");
     public static CodeMsg HOME_STUDENT_ADD_ERROR = new CodeMsg(-30, "用户保存失败~~");
     public static CodeMsg HOME_STUDENT_ADD_HEADERPIC_ERROR = new CodeMsg(-31, "头像保存失败~~");
-
+    // 商品
+    public static CodeMsg HOME_GOOD_PUSH_ERROR = new CodeMsg(-32, "此处不能为空哦~~");
+    public static CodeMsg HOME_GOOD_PUSH_ADD_ERROR = new CodeMsg(-33, "保存失败~~");
+    public static CodeMsg HOME_GOOD_PUSH_EDIT_ERROR = new CodeMsg(-34, "修改失败~~");
+    public static CodeMsg HOME_GOOD_PUSH_EDIT_ADD_ERROR = new CodeMsg(-35, "修改失败~~");
+    public static CodeMsg HOME_GOOD_FLAG_ERROR = new CodeMsg(-36, "擦亮失败~~");
+    public static CodeMsg WANGTED_GOOD_ERROR = new CodeMsg(-37, "求购物品不存在~~");
+    public static CodeMsg WANGTED_GOOD_EDIT_ERROR = new CodeMsg(-38, "编辑失败~~");
+    public static CodeMsg WANGTED_GOOD_DELETE_ERROR = new CodeMsg(-39, "删除失败~~");
+    // 举报商品类
+    public static CodeMsg WANGTED_GOOD_REPORT_ERROR = new CodeMsg(-39, "举报失败~~");
+    public static CodeMsg WANGTED_GOOD_REPORTED_ERROR = new CodeMsg(-39, "已经举报了~~");
+    public static CodeMsg WANGTED_GOOD_REPORTED_DELETE_ERROR = new CodeMsg(-40, "删除失败~~");
+    public static CodeMsg WANGTED_GOOD_COMMENT_ERROR = new CodeMsg(-40, "评论失败~~");
+    public static CodeMsg WANGTED_GOOD_COMMENT_ADD_ERROR = new CodeMsg(-41, "评论上传失败~~");
+    public static CodeMsg GOOD_UPDOWN_ERROR = new CodeMsg(-42, "上架失败~~");
+    public static CodeMsg GOOD_UPDOWN_ERROR2 = new CodeMsg(-42, "已上架，请勿重复上架~~");
 
     public int getCode() {
         return code;

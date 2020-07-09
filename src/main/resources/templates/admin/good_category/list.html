@@ -53,21 +53,21 @@
                   <div class="card-toolbar clearfix">
                     <form class="pull-right search-bar" method="get" action="/admin/good_category/list" role="form">
                       <div class="input-group">
-                        <div class="input-group-btn">
+                      <div class="input-group-btn">
 
-                          <button class="btn btn-default dropdown-toggle" id="search-btn" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false">
-                            名称 <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li> <a tabindex="-1" href="javascript:void(0)" data-field="title">名称</a> </li>
+                        <button class="btn btn-default dropdown-toggle" id="search-btn" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false">
+                          名称 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li> <a tabindex="-1" href="javascript:void(0)" data-field="title">名称</a> </li>
 
-                          </ul>
-                        </div>
-                        <input type="text" class="form-control" value="${name!""}" name="name" placeholder="请输入名称">
-                        <span class="input-group-btn">
+                        </ul>
+                      </div>
+                      <input type="text" class="form-control" value="${name!""}" name="name" placeholder="请输入名称">
+                      <span class="input-group-btn">
                           <button class="btn  btn-primary" type="submit">搜索</button>
                         </span>
-                      </div>
+                    </div>
                     </form>
                       <#if userThirdMenus??>
                       <div class="toolbar-btn-action">
@@ -188,6 +188,7 @@
     <script src="/admin/js/jconfirm/jquery-confirm.min.js"></script>
     <script type="text/javascript" src="/admin/js/Chart.js"></script>
     <script type="text/javascript">
+
       $(function(){
         $('.search-bar .dropdown-menu a').click(function() {
           var field = $(this).data('field') || '';

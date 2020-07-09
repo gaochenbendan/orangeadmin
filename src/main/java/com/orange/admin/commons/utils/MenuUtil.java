@@ -69,7 +69,10 @@ public class MenuUtil {
      * @return
      */
     public static Long getMenuIdByUrl(String url,List<Menu> menus){
-        if(url == null)return null;
+
+        if(url == null) {
+            return null;
+        }
         for(Menu menu : menus){
             if(url.equals(menu.getUrl())){
                 return menu.getMenuId();

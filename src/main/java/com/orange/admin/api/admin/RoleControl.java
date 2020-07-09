@@ -27,7 +27,7 @@ import java.util.List;
  * 后台角色管理控制器
  */
 @Controller
-@RequestMapping("/role")
+@RequestMapping("/admin/role")
 public class RoleControl {
 
 

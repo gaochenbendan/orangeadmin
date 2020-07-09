@@ -34,6 +34,7 @@ public interface GoodsCategoryService {
      */
     public PageUtil<GoodsCategory> findList(PageUtil<GoodsCategory> pageUtil, GoodsCategory goodsCategory);
 
+
     /**
      * 通过ID查找
      * @param id
@@ -52,5 +53,9 @@ public interface GoodsCategoryService {
      * @return
      */
     public List<GoodsCategory> findAll();
+
+    public  List<GoodsCategory> findChilren(GoodsCategory goodsCategory);
+
+    List<GoodsCategory> findByName(String name);
 
 }
