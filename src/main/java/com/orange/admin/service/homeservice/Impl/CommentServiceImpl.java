@@ -36,5 +36,10 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.findByGoods(goods);
     }
 
+    @Override
+    public List<Comment> findBALL() {
+        return commentDao.findAll();
+    }
+
 
 }

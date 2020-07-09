@@ -249,7 +249,7 @@ function down(url){
 		showWarningMsg('请选择一条数据进行下架！');
 		return;
 	}
-	var id = $("input[type='checkbox']:checked").val();
+	var  id = $("input[type='checkbox']:checked").val();
 	ajaxRequest('up_down','post',{id:id,status:2},function(){
       showSuccess('下架成功',function () {
         window.location.reload();
@@ -268,7 +268,7 @@ function recommend(url){
       showSuccess('推荐成功',function () {
         window.location.reload();
       });
-		window.location.reload();
+
 	});
 }
 //推荐
@@ -279,8 +279,10 @@ function unrecommend(url){
 	}
 	var id = $("input[type='checkbox']:checked").val();
 	ajaxRequest('recommend','post',{id:id,recommend:0},function(){
-		alert('取消推荐成功');
-		window.location.reload();
+      showSuccess('取消推荐成功',function () {
+        window.location.reload();
+      });
+
 	});
 }
 //调用删除方法
@@ -292,8 +294,9 @@ function deleteReq(id,url){
 		dataType:'json',
 		success:function(data){
 			if(data.code == 0){
-				showSuccessMsg('物品删除成功!',function(){
+				showSuccess('物品删除成功!',function(){
 					$("input[type='checkbox']:checked").parents("tr").remove();
+                  window.location.reload();
 				})
 			}else{
 				showErrorMsg(data.msg);

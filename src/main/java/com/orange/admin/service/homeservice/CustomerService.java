@@ -1,5 +1,6 @@
 package com.orange.admin.service.homeservice;
 
+import com.orange.admin.commons.utils.PageUtil;
 import com.orange.admin.pojo.common.Customer;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public interface CustomerService {
      * @return
      */
     public Customer findBySn(String sn);
+    public Customer findById(Long id);
 
     /**
      * 保存数据
@@ -24,5 +26,10 @@ public interface CustomerService {
      * @return
      */
     public Customer save(Customer customer);
+
+    public PageUtil<Customer> findlist(PageUtil<Customer> pageBean, Customer customer);
+
+    void deleteById(Long id);
+
 
 }

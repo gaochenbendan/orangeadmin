@@ -140,4 +140,14 @@ public class GoodsServiceImpl implements GoodsService {
 
         return pageBean;
     }
+
+    @Override
+    public void deleteById(Long id) {
+        goodsDao.deleteById(id);
+    }
+
+    @Override
+    public List<Goods> findAll() {
+        return goodsDao.findAll();
+    }
 }

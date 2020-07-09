@@ -23,6 +23,9 @@ public interface WantedGoodsService {
 
     public PageUtil<WantedGoods> findList(PageUtil<WantedGoods> pageUtil, WantedGoods wantedGoods);
 
+    public PageUtil<WantedGoods> findWantedGoodslist(PageUtil<WantedGoods> pageBean,WantedGoods wantedGoods);
 
 
-}
+
+
+    }

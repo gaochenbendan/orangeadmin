@@ -78,6 +78,9 @@ public class CodeMsg {
     public static CodeMsg HOME_STUDENT_UNABLE = new CodeMsg(-29, "用户被冻结~~");
     public static CodeMsg HOME_STUDENT_ADD_ERROR = new CodeMsg(-30, "用户保存失败~~");
     public static CodeMsg HOME_STUDENT_ADD_HEADERPIC_ERROR = new CodeMsg(-31, "头像保存失败~~");
+    public static CodeMsg ADMIN_FREEDZE_HEADERPIC_ERROR = new CodeMsg(-48, "冻结失败~~");
+    public static CodeMsg ADMIN_FREEDZE_HEADERPIC_ERROR2 = new CodeMsg(-49, "请勿重复操作~~");
+    public static CodeMsg ADMIN_DELETE_HEADERPIC_ERROR = new CodeMsg(-50, "删除失败~~");
     // 商品
     public static CodeMsg HOME_GOOD_PUSH_ERROR = new CodeMsg(-32, "此处不能为空哦~~");
     public static CodeMsg HOME_GOOD_PUSH_ADD_ERROR = new CodeMsg(-33, "保存失败~~");
@@ -94,7 +97,12 @@ public class CodeMsg {
     public static CodeMsg WANGTED_GOOD_COMMENT_ERROR = new CodeMsg(-40, "评论失败~~");
     public static CodeMsg WANGTED_GOOD_COMMENT_ADD_ERROR = new CodeMsg(-41, "评论上传失败~~");
     public static CodeMsg GOOD_UPDOWN_ERROR = new CodeMsg(-42, "上架失败~~");
-    public static CodeMsg GOOD_UPDOWN_ERROR2 = new CodeMsg(-42, "已上架，请勿重复上架~~");
+    public static CodeMsg GOOD_UPDOWN_ERROR2 = new CodeMsg(-43, "请勿重复操作~~");
+    public static CodeMsg GOOD_RECOMMEND_ERROR = new CodeMsg(-44, "推荐失败~~");
+    public static CodeMsg GOOD_RECOMMEND_ERROR2 = new CodeMsg(-45, "请勿重复操作~~");
+    public static CodeMsg GOOD_DELETE_ERROR = new CodeMsg(-46, "删除失败~~");
+    public static CodeMsg GOOD_DELETE_ERROR2 = new CodeMsg(-47, "删除失败,评论未删除~~");
+
 
     public int getCode() {
         return code;

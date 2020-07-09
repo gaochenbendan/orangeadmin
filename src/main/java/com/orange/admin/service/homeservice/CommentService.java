@@ -17,4 +17,8 @@ public interface CommentService {
 
     public List<Comment> findByGoods(Goods goods);
 
+    public List<Comment> findBALL();
+
+
+
 }

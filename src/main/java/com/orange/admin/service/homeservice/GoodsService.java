@@ -11,37 +11,26 @@ import java.util.List;
 @Service
 public interface GoodsService {
 
-    /**
-     * 保存数据
-     *
-     * @return
-     */
-    public Goods save(Goods goods);
+    Goods save(Goods goods);
 
-    /**
-     * 查找
-     *
-     * @return
-     */
-    public PageUtil<Goods> findList(PageUtil<Goods> pageUtil ,Goods goods);
-    public PageUtil<Goods> findList(PageUtil<Goods> pageUtil,List<Long> cid);
+    PageUtil<Goods> findList(PageUtil<Goods> pageUtil ,Goods goods);
 
-    /**
-     * 通过消费者查找
-     *
-     * @return
-     */
-    public List<Goods> findByCustomer(Customer customer);
+    PageUtil<Goods> findList(PageUtil<Goods> pageUtil,List<Long> cid);
 
-    public Goods find(Long id,Long customerId);
+    List<Goods> findByCustomer(Customer customer);
 
-    public GoodsCount cout(Customer customer);
+    Goods find(Long id,Long customerId);
 
-    public Goods findById(Long id);
+    GoodsCount cout(Customer customer);
 
-    public int coutSellOut();
+    Goods findById(Long id);
 
+    int coutSellOut();
 
-    public PageUtil<Goods> findlist(PageUtil<Goods> pageBean,Goods goods);
+    PageUtil<Goods> findlist(PageUtil<Goods> pageBean,Goods goods);
+
+    void deleteById(Long id);
+
+    List<Goods> findAll();
 
 }
