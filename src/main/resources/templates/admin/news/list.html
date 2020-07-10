@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>首页 - 橙子(Orange)后台管理系统</title>
     <link rel="icon" href="/admin/images/tubiao.png" type="image/ico">
     <meta name="keywords" content="橘子-后台管理系统项目">
@@ -11,13 +12,7 @@
     <link href="/admin/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/admin/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/admin/js/jconfirm/jquery-confirm.min.css">
-    <style>
-        td{
-            vertical-align:middle;
-        }
-    </style>
 </head>
-
 <body data-theme="dark">
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
@@ -28,7 +23,6 @@
             <div id="logo" class="sidebar-header">
                 <a class="navbar-brand  " href="/system/index">橙子-后台管理</a>
             </div>
-
             <div class="lyear-layout-sidebar-scroll">
                 <#include "../common/leftMenu.html">
                 <div class="sidebar-footer">
@@ -37,7 +31,6 @@
                     <p class="copyright">欢迎！！</p>
                 </div>
             </div>
-
 
         </aside>
         <!--End 左侧导航-->
@@ -57,13 +50,13 @@
                                     <div class="input-group">
                                         <div class="input-group-btn">
                                             <button class="btn btn-default dropdown-toggle" id="search-btn" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false">
-                                                学号<span class="caret"></span>
+                                                新闻公告 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li> <a tabindex="-1" href="javascript:void(0)" data-field="title">学号</a> </li>
+                                                <li> <a tabindex="-1" href="javascript:void(0)" data-field="title">新闻公告</a> </li>
                                             </ul>
                                         </div>
-                                        <input type="text" class="form-control" value="${sn!""}" name="sn" placeholder="请输入学生学号">
+                                        <input type="text" class="form-control" value="${newsTitle!""}" name="title" placeholder="请输入标题">
                                         <span class="input-group-btn">
                       <button class="btn btn-primary" type="submit">搜索</button>
                     </span>
@@ -74,7 +67,7 @@
                             <div class="card-body">
 
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th>
@@ -82,55 +75,37 @@
                                                     <input type="checkbox" id="check-all"><span></span>
                                                 </label>
                                             </th>
-                                            <th>头像</th>
-                                            <th>学号</th>
-                                            <th>昵称</th>
-                                            <th>密码</th>
-                                            <th>状态</th>
-                                            <th>手机</th>
-                                            <th>QQ</th>
-                                            <th>学校</th>
-                                            <th>学院</th>
-                                            <th>年级</th>
-                                            <th>注册时间</th>
+                                            <th>标题</th>
+                                            <th style="width:256px">内容</th>
+                                            <th>排序</th>
+                                            <th>浏览量</th>
+                                            <th>添加时间</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <#if pageBean.content?size gt 0>
-                                        <#list pageBean.content as student>
+                                        <#list pageBean.content as news>
                                         <tr>
                                             <td style="vertical-align:middle;">
                                                 <label class="lyear-checkbox checkbox-primary">
-                                                    <input type="checkbox" name="ids[]" value="${student.id}"><span></span>
+                                                    <input type="checkbox" name="ids[]" value="${news.id}"><span></span>
                                                 </label>
                                             </td>
+                                            <td style="vertical-align:middle;">${news.title}</td>
                                             <td style="vertical-align:middle;">
-                                                <#if student.headPic??>
-                                                <img src="/photo/view_cunstomer?filename=${student.headPic}" width="60px" height="60px">
+                                                <#if news.content?length gt 55>
+                                                ${news.content?substring(0,55)}...
                                                 <#else>
-                                                <img src="/home/imgs/avatar1.png" width="60px" height="60px">
+                                                ${news.content}
                                             </#if>
                                             </td>
-                                            <td style="vertical-align:middle;">${student.sn}</td>
-                                            <td style="vertical-align:middle;">${student.nickname!""}</td>
-                                            <td style="vertical-align:middle;">${student.password}</td>
-                                            <td style="vertical-align:middle;">
-                                                <#if student.status == 1>
-                                                <font class="text-success">正常</font>
-                                                <#else>
-                                                <font class="text-warning">冻结</font>
-                                            </#if>
-                                            </td>
-                                            <td style="vertical-align:middle;">${student.mobile!""}</td>
-                                            <td style="vertical-align:middle;">${student.qq!""}</td>
-                                            <td style="vertical-align:middle;">${student.school!""}</td>
-                                            <td style="vertical-align:middle;">${student.academy!""}</td>
-                                            <td style="vertical-align:middle;">${student.grade!""}</td>
-                                            <td style="vertical-align:middle;" style="vertical-align:middle;"><font class="text-success">${student.createTime}</font></td>
+                                            <td style="vertical-align:middle;" align="center">${news.sort}</td>
+                                            <td style="vertical-align:middle;" align="center">${news.viewNumber}</td>
+                                            <td style="vertical-align:middle;" style="vertical-align:middle;"><font class="text-success">${news.createTime}</font></td>
                                         </tr>
                                         </#list>
                                         <#else>
-                                        <tr align="center"><td colspan="12">这里空空如也！</td></tr>
+                                        <tr align="center"><td colspan="6">这里空空如也！</td></tr>
                                     </#if>
                                     </tbody>
                                     </table>
@@ -140,19 +115,19 @@
                                     <#if pageBean.currentPage == 1>
                                     <li class="disabled"><span>«</span></li>
                                     <#else>
-                                    <li><a href="list?sn=${sn!""}&currentPage=1">«</a></li>
+                                    <li><a href="list?title=${newsTitle!""}&currentPage=1">«</a></li>
                                 </#if>
                                 <#list pageBean.currentShowPage as showPage>
                                 <#if pageBean.currentPage == showPage>
                                 <li class="active"><span>${showPage}</span></li>
                                 <#else>
-                                <li><a href="list?sn=${sn!""}&currentPage=${showPage}">${showPage}</a></li>
+                                <li><a href="list?title=${newsTitle!""}&currentPage=${showPage}">${showPage}</a></li>
                             </#if>
                         </#list>
                         <#if pageBean.currentPage == pageBean.totalPage>
                         <li class="disabled"><span>»</span></li>
                         <#else>
-                        <li><a href="list?sn=${sn!""}&currentPage=${pageBean.totalPage}">»</a></li>
+                        <li><a href="list?title=${newsTitle!""}&currentPage=${pageBean.totalPage}">»</a></li>
                     </#if>
                     <li><span>共${pageBean.totalPage}页,${pageBean.total}条数据</span></li>
                     </ul>
@@ -208,33 +183,13 @@
             }
         });
     }
-    //冻结
-    function freeze(url){
+    //打开编辑页面
+    function edit(url){
         if($("input[type='checkbox']:checked").length != 1){
-            showWarinMsg('请选择一条数据进行操作！');
+            showWarningMsg('请选择一条数据进行编辑！');
             return;
         }
-        var id = $("input[type='checkbox']:checked").val();
-        ajaxRequest('update_status','post',{id:id,status:0},function(){
-            showSuccess('冻结成功',function () {
-                window.location.reload();
-            });
-
-        });
-    }
-    //激活
-    function openStudent(url){
-        if($("input[type='checkbox']:checked").length != 1){
-            showWarinMsg('请选择一条数据进行操作！');
-            return;
-        }
-        var id = $("input[type='checkbox']:checked").val();
-        ajaxRequest('update_status','post',{id:id,status:1},function(){
-            showSuccess('激活成功',function () {
-                window.location.reload();
-            });
-
-        });
+        window.location.href = url + '?id=' + $("input[type='checkbox']:checked").val();
     }
     //调用删除方法
     function deleteReq(id,url){
@@ -245,7 +200,7 @@
             dataType:'json',
             success:function(data){
                 if(data.code == 0){
-                    showSuccess('用户删除成功!',function(){
+                    showSuccess('新闻公告删除成功!',function(){
                         $("input[type='checkbox']:checked").parents("tr").remove();
                     })
                 }else{

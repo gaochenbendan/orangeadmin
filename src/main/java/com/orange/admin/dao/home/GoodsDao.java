@@ -25,13 +25,6 @@ public interface GoodsDao extends JpaRepository<Goods, Long>, JpaSpecificationEx
 
     Integer countByCustomer(Customer customer);
 
-    /**
-     * 根据物品分类查询物品列表
-     * @param cids
-     * @param offset
-     * @param pageSize
-     * @return
-     */
     @Query(value="SELECT * from goods where goods_category_id IN :cids and `status` = 1 ORDER BY create_time desc,flag desc,recommend desc limit :offset,:pageSize",nativeQuery=true)
     List<Goods> findList(@Param("cids")List<Long> cids, @Param("offset")Integer offset, @Param("pageSize")Integer pageSize);
 
@@ -42,5 +35,7 @@ public interface GoodsDao extends JpaRepository<Goods, Long>, JpaSpecificationEx
 
 
     int countByStatus(int status);
+
+    List<Goods> findByName(String name);
 
 }

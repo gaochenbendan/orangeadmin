@@ -33,4 +33,6 @@ public interface GoodsService {
 
     List<Goods> findAll();
 
+    List<Goods> findByName(String name);
+
 }

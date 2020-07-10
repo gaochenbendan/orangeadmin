@@ -150,4 +150,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> findAll() {
         return goodsDao.findAll();
     }
+
+    @Override
+    public List<Goods> findByName(String name) {
+        return goodsDao.findByName(name);
+    }
 }

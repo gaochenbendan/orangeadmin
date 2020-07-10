@@ -1,5 +1,6 @@
 package com.orange.admin.service.homeservice;
 
+import com.orange.admin.commons.utils.PageUtil;
 import com.orange.admin.pojo.common.Comment;
 import com.orange.admin.pojo.common.Goods;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public interface CommentService {
     public List<Comment> findByGoods(Goods goods);
 
     public List<Comment> findBALL();
+
+    public PageUtil<Comment> findlist(PageUtil<Comment> pageBean, Comment comment, List<Goods> goodsList);
 
 
 
