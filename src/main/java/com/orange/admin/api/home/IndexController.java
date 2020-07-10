@@ -7,9 +7,12 @@ import com.orange.admin.pojo.admin.bo.Result;
 import com.orange.admin.pojo.admin.sc.CodeMsg;
 import com.orange.admin.pojo.common.Customer;
 import com.orange.admin.pojo.common.Goods;
+import com.orange.admin.pojo.common.News;
 import com.orange.admin.service.adminservice.GoodsCategoryService;
+import com.orange.admin.service.adminservice.NewsService;
 import com.orange.admin.service.adminservice.OperaterLogService;
 import com.orange.admin.service.homeservice.CustomerService;
+import com.orange.admin.service.homeservice.FriendLinkService;
 import com.orange.admin.service.homeservice.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +44,13 @@ public class IndexController {
     @Autowired
     private OperaterLogService operaterLogService;
 
+    @Autowired
+    private NewsService newsService;
+
+    @Autowired
+    private FriendLinkService friendLinkService;
+
+
     /**
      * 登录首页
      *
@@ -53,6 +63,8 @@ public class IndexController {
         model.addAttribute("soldTotal",goodsService.coutSellOut());
         model.addAttribute("goodsList",goodsService.findList(pageUtil,goods));
         model.addAttribute("name",goods.getName());
+        model.addAttribute("newsList",newsService.findList(6));
+
         return "home/index/index";
 
     }
@@ -157,9 +169,15 @@ public class IndexController {
         return Result.success(true);
     }
 
+    @RequestMapping("/news_detail")
+    public  String newsDetail(Model model,@RequestParam(name = "id",required = true)Long id) {
+        News byId = newsService.findById(id);
+        model.addAttribute("newsdetail",newsService.findById(id));
 
+        byId.setViewNumber(byId.getViewNumber()+1);
 
+        newsService.save(byId);
 
-
-
+        return "/home/index/new_detail";
+    }
 }

@@ -59,6 +59,22 @@ public class CustomerController {
         return "/home/customer/index";
     }
 
+    @RequestMapping(value="/edit_pwd",method=RequestMethod.POST)
+    @ResponseBody
+    public Result<Boolean> editPwd(@RequestParam(name="oldPwd",required=true)String oldPwd,
+                                   @RequestParam(name="newPwd",required=true)String newPwd) {
+        Customer loginedCustomer = SessionUtil.getLoginedCustomer();
+        if(!loginedCustomer.getPassword().equals(oldPwd)){
+            return Result.errot(CodeMsg.EDIT_PWD_ERRROT);
+        }
+        loginedCustomer.setPassword(newPwd);
+        if(customerService.save(loginedCustomer) == null){
+            return Result.errot(CodeMsg.EDIT_PWD_ERRROT);
+        }
+        SessionUtil.set("CustomerL", loginedCustomer);
+        return Result.success(true);
+
+    }
     @RequestMapping(value = "edit_info",method = RequestMethod.POST)
     @ResponseBody
     public Result<Boolean> editIndf(Customer customer)

@@ -38,4 +38,5 @@ public interface GoodsDao extends JpaRepository<Goods, Long>, JpaSpecificationEx
 
     List<Goods> findByName(String name);
 
+
 }

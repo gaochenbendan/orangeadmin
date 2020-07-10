@@ -37,7 +37,6 @@ public class NewsServiceImpl implements NewsService {
         PageRequest pageable = PageRequest.of(pageBean.getCurrentPage()-1, pageBean.getPageSize(), sort);
         Page<News> findAll = newsDao.findAll(example, pageable);
         pageBean.setContent(findAll.getContent());
-        System.out.println(findAll.getContent());
         pageBean.setTotal(findAll.getTotalElements());
         pageBean.setTotalPage(findAll.getTotalPages());
         return pageBean;

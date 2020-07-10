@@ -28,6 +28,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Long cout() {
+        return customerDao.count();
+    }
+
+    @Override
     public Customer save(Customer customer) {
         return customerDao.save(customer);
     }

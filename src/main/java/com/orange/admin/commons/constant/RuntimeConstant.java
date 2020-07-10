@@ -21,6 +21,7 @@ public class RuntimeConstant {
 			"/cpacha/generate_cpacha",
 			"/home/**",
 			"/photo/view_icon",
+			"/photo/view",
 			"/photo/view_cunstomer"
 
 		);
@@ -36,6 +37,7 @@ public class RuntimeConstant {
 			"/menu/favicon.ico",
 			"/admin/images/**",
 			"/error",
+			"/photo/view",
 			"/upload/upload_photo",
 			"/cpacha/generate_cpacha",
 			"/system/logout",

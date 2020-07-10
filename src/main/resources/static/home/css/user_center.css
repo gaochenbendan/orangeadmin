@@ -195,6 +195,10 @@ div.center { position: relative; }
 #edit_info:hover { background: rgb(75, 192, 165) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
 #save_info { display: none; background: rgb(75, 192, 165) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
 #save_info:hover { background: rgb(255, 255, 255) none repeat scroll 0% 0%; color: rgb(75, 192, 165); }
+#edit_pwd_info, #save_pwd_info { background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(75, 192, 165); text-align: center; line-height: 26px; width: 68px; position: absolute; right: 0px; bottom: -13px; display: block; border-radius: 13px; cursor: pointer; }
+#edit_pwd_info:hover { background: rgb(75, 192, 165) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+#save_pwd_info { display: none; background: rgb(75, 192, 165) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+#save_pwd_info:hover { background: rgb(255, 255, 255) none repeat scroll 0% 0%; color: rgb(75, 192, 165); }
 #my_enshrine, #my_info, #my_messages, #my_products { min-height: 300px; }
 @media only screen and (max-width: 1224px) {
 	aside {  }

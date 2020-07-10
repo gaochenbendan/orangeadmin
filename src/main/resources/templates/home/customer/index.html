@@ -87,6 +87,7 @@
         </div>
         <div id="base_info">
             <h2>密码管理 <span id="edit_pwd_info">编辑</span><span id="save_pwd_info">保存</span></h2>
+
             <ul class="infos">
                 <li>原密码</li>
                 <li class="right_info">
@@ -308,6 +309,65 @@
             window.location.reload();
         });
     };
+    $(document).ready(function(){
+
+        $("#edit_pwd_info").bind('click',function(){
+            $(this).css({
+                display: "none"
+            })
+            $("#save_pwd_info").css({
+                display: "block"
+            })
+            $(".right_info span.editPwd").css({
+                display: "none"
+            })
+            $(".right_info input.editPwd").css({
+                display: "inline"
+            })
+        });
+        //提交修改密码功能
+        $("#save_pwd_info").bind('click',function(){
+            var oldPwd = $("#old-pwd").val();
+            var newPwd = $("#new-pwd").val();
+            var reNewPwd = $("#re-new-pwd").val();
+            if(oldPwd == ''){
+                alert('请填写原密码');
+                return ;
+            }
+            if(newPwd == ''){
+                alert('请填写新密码');
+                return ;
+            }
+            if(reNewPwd == ''){
+                alert('请再次填写新密码');
+                return ;
+            }
+            if(reNewPwd != newPwd){
+                alert('两次密码填写不一致');
+                return ;
+            }
+            if(newPwd.length <6 ){
+                alert('密码最少六位');
+                return ;
+            }
+            ajaxRequest('edit_pwd','post',{oldPwd:oldPwd,newPwd:newPwd},function(rst){
+                alert('密码修改成功');
+                $("#save_pwd_info").css({
+                    display: "none"
+                })
+                $("#edit_pwd_info").css({
+                    display: "block"
+                })
+                $(".right_info span.editPwd").css({
+                    display: "inline"
+                })
+                $(".right_info input.editPwd").css({
+                    display: "none"
+                })
+            });
+
+        });
+    });
 
 
 

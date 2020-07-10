@@ -83,5 +83,10 @@ public class CommentServiceImpl implements CommentService {
         return pageBean;
     }
 
+    @Override
+    public Long cout() {
+        return commentDao.count();
+    }
+
 
 }

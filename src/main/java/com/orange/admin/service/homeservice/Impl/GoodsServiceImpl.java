@@ -155,4 +155,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> findByName(String name) {
         return goodsDao.findByName(name);
     }
+
+    @Override
+    public int cout() {
+        return goodsDao.countByStatus(1);
+    }
 }

@@ -15,6 +15,10 @@ import com.orange.admin.pojo.admin.vo.UserVo;
 import com.orange.admin.service.adminservice.DatabaseDakService;
 import com.orange.admin.service.adminservice.OperaterLogService;
 import com.orange.admin.service.adminservice.UserService;
+import com.orange.admin.service.homeservice.CommentService;
+import com.orange.admin.service.homeservice.CustomerService;
+import com.orange.admin.service.homeservice.GoodsService;
+import com.orange.admin.service.homeservice.WantedGoodsService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +48,18 @@ public class SystemControl {
     @Autowired
     private DatabaseDakService databaseDakService;
 
+    @Autowired
+    private CustomerService customerService;
+
+    @Autowired
+    private GoodsService goodsService;
+
+    @Autowired
+    private WantedGoodsService wantedGoodsService;
+
+    @Autowired
+    private CommentService commentService;
+
 
     /**
      * 登录接口
@@ -72,6 +88,10 @@ public class SystemControl {
         model.addAttribute("operatoreLogTotal", operaterLogService.count());
         model.addAttribute("databaseBakTotal", databaseDakService.count());
         model.addAttribute("onlineUserTotal", HttpSessionListion.onlineUserCoutent);
+        model.addAttribute("customerTotal",customerService.cout());
+        model.addAttribute("goodsTotal",goodsService.cout());
+        model.addAttribute("wantGoodsTotal",wantedGoodsService.cout());
+        model.addAttribute("commentTotal",commentService.cout());
 
         return "admin/system/index";
     }

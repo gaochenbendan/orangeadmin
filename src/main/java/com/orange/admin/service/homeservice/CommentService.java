@@ -22,6 +22,6 @@ public interface CommentService {
 
     public PageUtil<Comment> findlist(PageUtil<Comment> pageBean, Comment comment, List<Goods> goodsList);
 
-
+    Long cout();
 
 }

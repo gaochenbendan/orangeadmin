@@ -35,4 +35,6 @@ public interface GoodsService {
 
     List<Goods> findByName(String name);
 
+    int cout();
+
 }

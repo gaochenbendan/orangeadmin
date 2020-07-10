@@ -19,6 +19,8 @@ public interface CustomerService {
     public Customer findBySn(String sn);
     public Customer findById(Long id);
 
+    Long cout();
+
     /**
      * 保存数据
      *

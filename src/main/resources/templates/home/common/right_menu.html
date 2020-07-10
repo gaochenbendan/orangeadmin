@@ -32,7 +32,12 @@
             </a>
             <div class="wx-fl-qrcode">
                 <p>微信关注</p>
+                <#if weixin??>
+                <img height="100px" height="100px" src="/photo/view?filename=${weixin}">
+                <#else>
                 <img height="100px" height="100px" src="/home/imgs/orange_wx.jpg">
+            </#if>
+
                 <p>橙子</p>
                 <div class="dc-dot"></div>
             </div>

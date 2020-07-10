@@ -62,7 +62,7 @@
             <div class="card bg-danger">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">用户总数</p>
+                  <p class="h6 text-white m-t-0">管理员数量</p>
                   <p class="h3 text-white m-b-0">${uerTotal!"0"}人</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
@@ -74,8 +74,8 @@
             <div class="card bg-success">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">日志记录数</p>
-                  <p class="h3 text-white m-b-0">${operatoreLogTotal!"0"}个</p>
+                  <p class="h6 text-white m-t-0">管理员在线人数</p>
+                  <p class="h3 text-white m-b-0">${onlineUserTotal!"0"}个</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-pig select-icon fa-1-5x"></i></span> </div>
               </div>
@@ -86,13 +86,62 @@
             <div class="card bg-purple">
               <div class="card-body clearfix">
                 <div class="pull-right">
-                  <p class="h6 text-white m-t-0">当前在线人数</p>
-                  <p class="h3 text-white m-b-0">${onlineUserTotal!"0"}个</p>
+                  <p class="h6 text-white m-t-0">操作日志</p>
+                  <p class="h3 text-white m-b-0">${operatoreLogTotal!"0"}个</p>
                 </div>
                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
               </div>
             </div>
           </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card bg-primary">
+                <div class="card-body clearfix">
+                  <div class="pull-right">
+                    <p class="h6 text-white m-t-0">用户注册总数</p>
+                    <p class="h3 text-white m-b-0">${customerTotal!"0"}</p>
+                  </div>
+                  <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account-multiple fa-1-5x"></i></span> </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card bg-danger">
+                <div class="card-body clearfix">
+                  <div class="pull-right">
+                    <p class="h6 text-white m-t-0">物品发布总数</p>
+                    <p class="h3 text-white m-b-0">${goodsTotal!"0"}</p>
+                  </div>
+                  <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-database fa-1-5x"></i></span> </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card bg-success">
+                <div class="card-body clearfix">
+                  <div class="pull-right">
+                    <p class="h6 text-white m-t-0">求购物品发布总数</p>
+                    <p class="h3 text-white m-b-0">${wantGoodsTotal!"0"}</p>
+                  </div>
+                  <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-database fa-1-5x"></i></span> </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card bg-purple">
+                <div class="card-body clearfix">
+                  <div class="pull-right">
+                    <p class="h6 text-white m-t-0">物品评论总数</p>
+                    <p class="h3 text-white m-b-0">${commentTotal!"0"}条</p>
+                  </div>
+                  <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-multiple-outline fa-1-5x"></i></span> </div>
+                </div>
+              </div>
+            </div>
+
         </div>
         
 

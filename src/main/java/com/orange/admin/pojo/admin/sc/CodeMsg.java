@@ -57,6 +57,7 @@ public class CodeMsg {
     public static CodeMsg USER_NAME_HAVE_EXITS = new CodeMsg(-15, "用户名已经存在了~~");
     public static CodeMsg ADD_USER_ERROR = new CodeMsg(-16, "保存用户失败~~");
     public static CodeMsg DELETE_USER_ERROR = new CodeMsg(-17, "删除用户失败~~");
+    public static CodeMsg EDIT_PWD_ERRROT = new CodeMsg(-57, "密码修改失败~~");
     //  日志管理
     public static CodeMsg LOG_DELETE_NULL = new CodeMsg(-18, "请选择删除日志~~");
     //  数据库备份
@@ -102,11 +103,15 @@ public class CodeMsg {
     public static CodeMsg GOOD_RECOMMEND_ERROR2 = new CodeMsg(-45, "请勿重复操作~~");
     public static CodeMsg GOOD_DELETE_ERROR = new CodeMsg(-46, "删除失败~~");
     public static CodeMsg GOOD_DELETE_ERROR2 = new CodeMsg(-47, "删除失败,评论未删除~~");
-    //
+    //新闻类
     public static CodeMsg NEWS_ADD_ERROR = new CodeMsg(-51, "添加失败~~");
     public static CodeMsg NEWS_DELETE_ERROR = new CodeMsg(-52, "删除失败~~");
     public static CodeMsg NEWS_EDIT_ERROR = new CodeMsg(-53, "添加失败~~");
-
+    // 友情链接
+    public static CodeMsg FRIENDLINK_ADD_ERROR = new CodeMsg(-54, "添加失败~~");
+    public static CodeMsg FRIENDLINK_EDIT_ERROR = new CodeMsg(-56, "添加失败~~");
+    //网站设置
+    public static CodeMsg ADMIN_SITESETTING_EDIT_ERROR = new CodeMsg(-55, "添加失败~~");
     public int getCode() {
         return code;
     }

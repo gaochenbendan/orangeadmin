@@ -19,7 +19,7 @@ spring:
       min-idle: 5
   # session的实效时间
   session:
-    timeout: 1800
+    timeout: 18000
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -33,7 +33,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   servlet:
     multipart:
-      max-file-size: 1024MB
+      max-file-size: 60KB
 
 
 

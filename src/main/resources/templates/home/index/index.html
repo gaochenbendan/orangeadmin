@@ -18,8 +18,11 @@
         <div class="wrap-site mt20">
             <div class="recom-title"></div>
             <ul class="recom-list group">
-                <li><a href="http://www.2shoujie.com/publishRule" target="_top">商品发布规则</a></li>
-                <li><a href="http://www.2shoujie.com/article/4.html" target="_top">购买二手iPhone注意事项</a></li>
+                <#if newsList??>
+                <#list newsList as new>
+                <li><a href="/home/index/news_detail?id=${new.id}" target="_top">${new.title}</a></li>
+            </#list>
+            </#if>
             </ul>
         </div>
         <div class="label-wr center clearfix">

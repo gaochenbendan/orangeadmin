@@ -25,7 +25,7 @@ public interface WantedGoodsService {
 
     public PageUtil<WantedGoods> findWantedGoodslist(PageUtil<WantedGoods> pageBean,WantedGoods wantedGoods);
 
-
+    Long cout();
 
 
     }

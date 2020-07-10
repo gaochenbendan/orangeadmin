@@ -87,5 +87,10 @@ public class WantedGoodsServiceImpl implements WantedGoodsService {
         return pageBean;
     }
 
+    @Override
+    public Long cout() {
+        return wantedGoodsDao.count();
+    }
+
 
 }
